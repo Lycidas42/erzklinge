@@ -1,0 +1,176 @@
+<div id="app">
+  <header class="hud">
+    <div class="brand">Erzklinge</div>
+    <div class="hud-hero">
+      <div class="lvl-badge num" id="hud-lvl">1</div>
+      <div class="meta">
+        <div class="name" id="hud-name">Brokk</div>
+        <div class="bar xp" id="hud-xp"><i></i></div>
+        <div class="xp-line num"><span id="hud-xp-t">0 / 60 EP</span><span id="hud-hp-t"></span></div>
+      </div>
+    </div>
+    <div class="gold num"><span class="coin" aria-hidden="true"></span><span id="hud-gold">0</span></div>
+  </header>
+
+  <main id="main">
+    <!-- Startseite -->
+    <section class="screen" id="scr-home" data-screen="home">
+      <div class="home-grid">
+        <div>
+          <div class="stage stage-show" id="stage-home">
+            <div class="loading">Halle wird beleuchtet …</div>
+            <div class="paperdoll" data-doll="home"></div>
+            <div class="stage-hint">Ziehen zum Drehen</div>
+          </div>
+          <div class="hero-plate">
+            <button class="hero-name" id="home-name" title="Namen ändern">Brokk</button>
+            <span class="chip num" id="home-lvl">Stufe 1</span>
+            <span class="chip ember ping num" id="home-points" hidden></span>
+          </div>
+        </div>
+        <div class="home-side">
+          <div class="panel">
+            <h2>Werte</h2>
+            <div class="attr-row" id="home-attrs"></div>
+            <dl class="statlist" id="home-stats"></dl>
+          </div>
+          <div class="nav-tiles" id="home-tiles"></div>
+          <div class="panel">
+            <h2>Gerade im Gange</h2>
+            <div class="activity" id="home-activity"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Arena -->
+    <section class="screen" id="scr-arena" data-screen="arena" hidden>
+      <div class="stage stage-arena" id="stage-arena">
+        <div class="loading">Weg wird gesucht …</div>
+        <div class="fx-layer" id="arena-fx"></div>
+        <div class="plate plate-hero">
+          <div class="nm" id="ap-name">Brokk</div>
+          <div class="sub num" id="ap-sub">Stufe 1</div>
+          <div class="bar hp tall" id="ap-hp"><i></i><span class="lbl num"></span></div>
+        </div>
+        <div class="plate plate-mon" id="ap-mon">
+          <div class="nm" id="am-name">–</div>
+          <div class="sub num" id="am-sub"></div>
+          <div class="bar hp tall" id="am-hp"><i></i><span class="lbl num"></span></div>
+        </div>
+        <div class="arena-banner" id="arena-banner"><div class="big"></div><div class="small"></div></div>
+        <div class="arena-status" id="arena-status">Unterwegs</div>
+      </div>
+      <div class="arena-grid">
+        <div class="panel">
+          <div class="zone-head">
+            <div><div class="zn" id="az-name">Moosgrund</div><div class="dim" id="az-sub"></div></div>
+            <div class="chip num" id="az-lvl">Gegnerstufe 1–10</div>
+          </div>
+          <div class="track" id="az-track"></div>
+          <div class="seg" role="group" aria-label="Fortschritt in der Zone">
+            <button id="mode-auto" aria-pressed="true">Vorrücken</button>
+            <button id="mode-hold" aria-pressed="false">Stufe halten</button>
+          </div>
+          <div class="seg-note" id="mode-note"></div>
+        </div>
+        <div class="panel">
+          <h2>Kampfwerte</h2>
+          <dl class="statlist" id="arena-stats" style="margin-top:0"></dl>
+          <h2 style="margin-top:14px">Verlauf</h2>
+          <div class="log" id="arena-log"></div>
+        </div>
+      </div>
+      <div>
+        <h2 class="label">Zonen</h2>
+        <div class="zones" id="zones"></div>
+      </div>
+    </section>
+
+    <!-- Training -->
+    <section class="screen" id="scr-train" data-screen="train" hidden>
+      <div class="screen-head">
+        <h1>Trainingshof</h1>
+        <p>Training läuft auch, während du kämpfst oder offline bist. Tippe auf die Puppe, um schneller voranzukommen.</p>
+      </div>
+      <div class="stage stage-train" id="stage-train" role="button" tabindex="0" aria-label="Trainingspuppe schlagen">
+        <div class="loading">Puppe wird gestopft …</div>
+        <div class="fx-layer" id="train-fx"></div>
+        <div class="plate plate-hero" style="width:min(320px, calc(100% - 24px))">
+          <div class="nm" id="tr-name">Kein Training</div>
+          <div class="sub num" id="tr-sub"></div>
+          <div class="bar train tall" id="tr-bar"><i></i><span class="lbl num"></span></div>
+        </div>
+        <div class="stage-hint" id="tr-hint">Auf die Puppe tippen: Training beschleunigen</div>
+      </div>
+      <div class="train-grid" id="train-cards"></div>
+    </section>
+
+    <!-- Charakter -->
+    <section class="screen" id="scr-char" data-screen="char" hidden>
+      <div class="char-grid">
+        <div>
+          <div class="stage stage-show" id="stage-char">
+            <div class="paperdoll" data-doll="char"></div>
+            <div class="stage-hint">Ziehen zum Drehen</div>
+          </div>
+          <div class="hero-plate">
+            <button class="hero-name" id="char-name" title="Namen ändern">Brokk</button>
+            <span class="chip num" id="char-lvl">Stufe 1</span>
+          </div>
+        </div>
+        <div class="panel">
+          <div class="points-note">
+            <h2 style="margin:0">Attribute</h2>
+            <span class="chip num" id="char-points">0 Punkte frei</span>
+          </div>
+          <div class="alloc" id="alloc"></div>
+          <div class="details" id="details"></div>
+        </div>
+        <div class="panel inv-panel">
+          <h2>Inventar <span class="count num" id="inv-count"></span></h2>
+          <div class="inv-tools">
+            <button class="btn small" id="inv-sort">Sortieren</button>
+            <button class="btn small" id="inv-sellcommon">Gewöhnliche verkaufen</button>
+          </div>
+          <div class="inv-grid" id="inv-grid"></div>
+          <p class="mute" style="font-size:14px;margin:12px 0 0">Tippe auf einen Gegenstand, um ihn mit deiner Ausrüstung zu vergleichen. <span class="good">▲</span> markiert Verbesserungen, ein roter Punkt unerfüllte Anforderungen.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Shop -->
+    <section class="screen" id="scr-shop" data-screen="shop" hidden>
+      <div class="shop-head">
+        <div class="screen-head" style="display:block">
+          <h1>Grimas Kontor</h1>
+          <p>Ware aus allen Stollen. Das Sortiment wechselt alle zehn Minuten.</p>
+        </div>
+        <div class="settings-row">
+          <span class="chip num" id="shop-timer"></span>
+          <button class="btn" id="shop-reroll"></button>
+        </div>
+      </div>
+      <div class="offers" id="offers"></div>
+      <div class="panel">
+        <h2>Verkaufen <span class="count num" id="sell-count"></span></h2>
+        <div class="sell-list" id="sell-list"></div>
+      </div>
+      <div class="panel">
+        <h2>Einstellungen</h2>
+        <div class="settings-row">
+          <span class="dim">Grafik:</span>
+          <div class="seg" style="width:auto">
+            <button id="q-high" aria-pressed="true">Hoch</button>
+            <button id="q-low" aria-pressed="false">Sparsam</button>
+          </div>
+          <button class="btn ghost" id="reset-game">Neues Spiel</button>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <nav class="tabbar" id="tabbar" aria-label="Bereiche"></nav>
+</div>
+<div class="toasts" id="toasts" aria-live="polite"></div>
+<div id="sheet-root"></div>
